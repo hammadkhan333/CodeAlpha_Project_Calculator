@@ -3,17 +3,17 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #1e1e1e;
     margin: 0;
     font-family: 'Arial', sans-serif;
     color: #f0f0f0;
+    background: url('https://images.unsplash.com/photo-1517816989283-4e4e71079b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDE2fHxkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE2Nzc2NTg1NzQ&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
 }
 
 .calculator {
     border: 1px solid #333;
     border-radius: 16px;
     padding: 20px;
-    background-color: #2c2c2c;
+    background-color: rgba(44, 44, 44, 0.9); /* Slightly transparent background */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
     max-width: 400px;
     width: 100%;
@@ -68,4 +68,5 @@ body {
 .btn.operation:active {
     background-color: #d35400;
 }
+
 
