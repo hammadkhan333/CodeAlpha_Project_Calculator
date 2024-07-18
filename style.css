@@ -6,7 +6,7 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     color: #f0f0f0;
-    background: url('https://images.unsplash.com/photo-1517816989283-4e4e71079b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDE2fHxkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE2Nzc2NTg1NzQ&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+    background: url('./pic/calculator.jpg') no-repeat center center/cover;
 }
 
 .calculator {
