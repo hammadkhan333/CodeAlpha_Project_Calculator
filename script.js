@@ -1,52 +1,55 @@
-let displayValue = '';
-let currentOperation = null;
-let firstOperand = '';
-let secondOperand = '';
-let shouldResetDisplay = false;
-
-const display = document.getElementById('display');
-
-function updateDisplay() {
-    display.innerText = displayValue;
-}
+let display = document.getElementById('display');
+let currentNumber = '';
+let previousNumber = '';
+let operation = null;
 
 function appendNumber(number) {
-    if (shouldResetDisplay) {
-        displayValue = '';
-        shouldResetDisplay = false;
-    }
-    displayValue += number;
-    updateDisplay();
+    currentNumber += number;
+    display.innerText = currentNumber;
 }
 
-function setOperation(operation) {
-    if (currentOperation !== null) calculateResult();
-    firstOperand = displayValue;
-    currentOperation = operation;
-    shouldResetDisplay = true;
-    displayValue += operation;
-    updateDisplay();
+function setOperation(op) {
+    if (currentNumber === '') return;
+    if (previousNumber !== '') {
+        calculateResult();
+    }
+    operation = op;
+    previousNumber = currentNumber;
+    currentNumber = '';
 }
 
 function calculateResult() {
-    if (currentOperation === null || shouldResetDisplay) return;
-    secondOperand = displayValue.split(currentOperation)[1];
-    displayValue = String(eval(`${firstOperand}${currentOperation}${secondOperand}`));
-    currentOperation = null;
-    updateDisplay();
+    let result;
+    const prev = parseFloat(previousNumber);
+    const current = parseFloat(currentNumber);
+    if (isNaN(prev) || isNaN(current)) return;
+    switch (operation) {
+        case '+':
+            result = prev + current;
+            break;
+        case '-':
+            result = prev - current;
+            break;
+        case '*':
+            result = prev * current;
+            break;
+        case '/':
+            result = prev / current;
+            break;
+        default:
+            return;
+    }
+    currentNumber = result;
+    operation = undefined;
+    previousNumber = '';
+    display.innerText = result;
 }
 
 function clearDisplay() {
-    displayValue = '';
-    updateDisplay();
+    currentNumber = '';
+    previousNumber = '';
+    operation = null;
+    display.innerText = '';
 }
 
-function allClear() {
-    displayValue = '';
-    currentOperation = null;
-    firstOperand = '';
-    secondOperand = '';
-    shouldResetDisplay = false;
-    updateDisplay();
-}
 
